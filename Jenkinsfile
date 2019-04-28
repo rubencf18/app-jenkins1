@@ -9,7 +9,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'TEST'
-        sh 'docker run - dapp'
+        sh 'docker run -d app'
         sh 'nc -vc localhost 80'
         sh 'docker stop app'
       }
