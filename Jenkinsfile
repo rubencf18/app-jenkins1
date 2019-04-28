@@ -16,8 +16,10 @@ pipeline {
     }
     stage('Push Registry'){
       steps {
-        sh 'docker tag app:test rubencf18/app:stable'
-        sh 'docker push rubencf18/app:stable'
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'user')]) {
+          sh 'docker tag app:test rubencf18/app:stable'
+          sh 'docker push rubencf18/app:stable'
+        }
       }
     }
   }
