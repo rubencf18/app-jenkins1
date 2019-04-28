@@ -16,8 +16,8 @@ pipeline {
     }
     stage('Push Registry'){
       steps {
-        sh 'docker tag app:test rubencf18/app:stable'
-        sh 'docker push rubencf18/app:stable'
+        sh 'docker tag app:test rcamacho/app:stable'
+        sh 'docker push rcamacho/app:stable'
       }
     }
   }
