@@ -11,13 +11,13 @@ pipeline {
         echo 'TEST'
         sh 'docker run -d --name app app:test'
         sh 'nc -vz localhost 80'
-        sh 'docker stop app'
+        sh 'docker stop app:test'
       }
     }
     stage('Push Registry'){
       steps {
-        sh 'docker tag app:test rcamacho/app:stable'
-        sh 'docker push rcamacho/app:stable'
+        sh 'docker tag app:test rubencf18/app:stable'
+        sh 'docker push rubencf18/app:stable'
       }
     }
   }
